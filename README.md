@@ -1,15 +1,13 @@
 # 2024.8月初教程即将更新…………
 
 # Cloudflare-workers/pages代理脚本
-
-### 注意：本项目独立本地化生成，不依赖订阅器、节点转换等第三方外链引用，无需担心节点被订阅可查
-
-#### 本项目定位懒人小白使用，默认节点都为CF官方IP，所以无需频繁更新客户端优选IP，如有特殊情况会第一时间更新
-
-#### workers本地部署：支持vless+ws+tls、trojan+ws+tls、vless+ws、trojan+ws代理节点
-
-#### pages本地部署：支持vless+ws+tls、trojan+ws+tls代理节点
-
+### 本项目仅支持本地化部署，不依赖订阅器、节点转换等第三方外链引用，无需担心节点订阅被盗查
+--------------------------------
+## 脚本特色：
+### 懒人小白专用！默认节点都为CF官方IP，无需频繁更新订阅获取客户端优选IP
+#### Workers方式：支持vless+ws+tls、trojan+ws+tls、vless+ws、trojan+ws代理节点
+#### Pages方式：支持vless+ws+tls、trojan+ws+tls代理节点
+#### CF Vless/Trojan的单节点支持path路径自定义三类proxyip（IPV4形式、IPV6形式、域名形式）
 #### 支持单节点链接、聚合通用节点订阅、sing-box节点订阅、clash节点订阅
 
 --------------------------------
@@ -33,7 +31,7 @@
 | 1、必要的uuid | uuid |符合uuid规定格式 |万人骑uuid：77a571fb-4fd2-4b37-8596-1b7d9728bb5c|
 | 2、能上CF类网站 | proxyip |ipv4地址、域名、[ipv6地址]|proxyip域名：代码第9行|
 | 3、订阅节点优选IP | ip1到ip13 |CF官方IP、CF反代IP、CF优选域名| CF官方不同地区的visa域名|
-| 4、优选IP对应端口 | pt1到pt13 |CF13个标准端口、反代IP对应高位端口| CF13个标准端口|
+| 4、优选IP对应端口 | pt1到pt13 |CF13个标准端口、反代IP对应任意端口| CF13个标准端口|
 
 ---------------------------------
 
@@ -56,7 +54,7 @@
 | 1、必要的密码 | pswd |任意字符号 |万人骑密码：trojan|
 | 2、能上CF类网站 | proxyip |ipv4地址、域名、[ipv6地址]|proxyip域名：代码第5行|
 | 3、订阅节点优选IP | ip1到ip13 |CF官方IP、CF反代IP、CF优选域名| CF官方不同地区的visa域名|
-| 4、优选IP对应端口 | pt1到pt13 |CF13个标准端口、反代IP对应高位端口| CF13个标准端口|
+| 4、优选IP对应端口 | pt1到pt13 |CF13个标准端口、反代IP对应任意端口| CF13个标准端口|
 
 ---------------------------------
 ## 三：CF Vless/trojan的单节点支持path路径自定义proxyip
@@ -81,7 +79,7 @@ CF Trojan：在网页地址栏输入 https:// workers域名 或者 pages域名 �
 
 ## 五：优选IP应用
 
-如果你没有天天最高速度或者选择国家的需求，推荐使用脚本默认生成的CF官方不同地区的visa域名（IP落地地区都为美国）
+如果你没有天天最高速度或者选择国家的需求，使用默认的CF官方不同地区的visa域名即可（IP落地地区都为美国）
 
 推荐好记的懒人专属CF官方IP如下（IP落地地区都为美国，支持13个标准端口切换），称之为"冲在最前的不死IP"
 
@@ -120,13 +118,19 @@ CF Trojan：在网页地址栏输入 https:// workers域名 或者 pages域名 �
 注意：多个CF节点在客户端使用负载均衡或者自动选择时，建议所有应用的节点都为同一个国家地区，以避免不同国家之间的IP乱跳现象
 
 ---------------------------------
-## 支持分片(Fragment)功能的客户端推荐 (更新中……)：
+## 客户端推荐
 
-#### 安卓Android：[v2rayNG](https://github.com/2dust/v2rayNG/tags)、[Nekobox](https://github.com/maskedeken/NekoBoxForAndroid/tags)、[Karing](https://github.com/KaringX/karing/tags)、v2box
+### 启用分片(Fragment)功能的好处：无视域名被墙TLS阻断，从而让workers等被墙的域名支持TLS
+ 
+目前支持该功能的平台客户端如下 (更新中……)
 
-#### 电脑Windows：[v2rayN](https://github.com/2dust/v2rayN/tags)、[Hiddify](https://github.com/hiddify/hiddify-next/releases)、[Karing](https://github.com/KaringX/karing/tags)
+1、安卓Android：[v2rayNG](https://github.com/2dust/v2rayNG/tags)、[Nekobox](https://github.com/maskedeken/NekoBoxForAndroid/tags)、[Karing](https://github.com/KaringX/karing/tags)、v2box
 
-#### 苹果Ios：Karing、Shadowrocket(小火箭)、Streisand、v2box
+2、电脑Windows：[v2rayN](https://github.com/2dust/v2rayN/tags)、[Hiddify](https://github.com/hiddify/hiddify-next/tags)、[Karing](https://github.com/KaringX/karing/tags)
+
+3、苹果Ios：Karing、Shadowrocket(小火箭)、Streisand、v2box
+
+4、软路由Openwrt：[homeproxy](https://github.com/yonggekkk/homeproxy/tags)
 
 注意：其他平台客户端未开启分片功能情况下，workers域的6个443系TLS节点是不可用的。自定义域或pages域无需开启分片就可使用TLS节点
 
@@ -157,14 +161,14 @@ CF Trojan：在网页地址栏输入 https:// workers域名 或者 pages域名 �
 ---------------------------------
 ---------------------------------
 ---------------------------------
-# 优选域名、优选官方IP+反代IP一键脚本：
+## 优选域名、优选官方IP+反代IP一键脚本（在本地网络环境下利用termux或者ish运行）：
 
-### CF-CDN优选公共大厂域名脚本，苹果安卓手机平板专用，(请参考教程，在本地网络环境下运行)：
+### CF-CDN优选公共大厂域名脚本，苹果安卓手机平板专用：
 ```
 curl -sSL https://gitlab.com/rwkgyg/CFwarp/raw/main/point/CFcdnym.sh -o CFcdnym.sh && chmod +x CFcdnym.sh && bash CFcdnym.sh
 ```
 ------------------------------------------------------------------------
-### CF-优选官方IP+反代IP二合一脚本，苹果安卓手机平板专用，(请参考教程，在本地网络环境下运行)：
+### CF-优选官方IP+反代IP二合一脚本，苹果安卓手机平板专用：
 ```
 curl -sSL https://gitlab.com/rwkgyg/CFwarp/raw/main/point/cfip.sh -o cfip.sh && chmod +x cfip.sh && bash cfip.sh
 ```
